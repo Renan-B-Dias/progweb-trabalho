@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :course, inverse_of: :users
+
+  validates :name, :email, :course, presence: true
+  validates :email, uniqueness: true
 end
