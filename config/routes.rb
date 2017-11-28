@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   root "/", action: :index, controller: :home
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :teachers, only: [:index, :show] do
+    resources :ratings, except: :index
+  end
+
+  resources :subjects, only: [:index, :show] do
+    resources :ratings, except: :index
+  end
+
 end

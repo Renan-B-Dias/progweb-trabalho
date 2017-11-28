@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row">
+    <% @teachers.each do |teacher| %>
+      <div class="col s4">
+        <div class="card sticky-action">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="https://robohash.org/<%= teacher.name.parameterize %>?bgset=any">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+              <%= teacher.name %>
+              <i class="material-icons right">more_vert</i>
+            </span>
+            <p>Nota: <%= rand(1..5) %></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <%= teacher.name %>
+              <i class="material-icons right">close</i>
+            </span>
+            <p>Titulo: <%= teacher.title.text %></p>
+            <p>Nota: <%= rand(1..5) %></p>
+          </div>
+
+          <div class="card-action center">
+            <%= link_to "Detalhers", teacher_path(teacher) %>
+            <%= link_to "Avaliar", new_teacher_rating_path(teacher) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
