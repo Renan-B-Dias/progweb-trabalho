@@ -15,29 +15,47 @@
 
   </div>
 
-  <div class="row">
+  <% if @teacher.ratings.any? %>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Teria aula novamente</th>
-          <th>Texto</th>
-          <th>Dificuldade</th>
-        </tr>
-      </thead>
+    <div class="row">
+      <div class="col s12">
+        <h4>Avaliações</h4>
+      </div>
 
-      <tbody>
+      <div class="col s12">
+        <table>
+          <thead>
+            <tr>
+              <th>Teria aula novamente</th>
+              <th>Texto</th>
+              <th>Dificuldade</th>
+            </tr>
+          </thead>
 
-        <% @teacher.ratings.each do |rating| %>
-          <tr>
-            <th><%= (rating.take_again ? "Sim" : "Não") %></th>
-            <th><%= rating.text %></th>
-            <th><%= rating.difficulty %></th>
-          </tr>
-        <% end %>
+          <tbody>
+            <% @teacher.ratings.each do |rating| %>
+              <tr>
+                <th><%= (rating.take_again ? "Sim" : "Não") %></th>
+                <th><%= rating.text %></th>
+                <th><%= rating.difficulty %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
-      </tbody>
-    </table>
+    <% else %>
+
+      <div class="row">
+
+        <div class="center-align col s12">
+          <h4>Não foi encontrado avaliações :(</h4>
+          <i class="material-icons">list</i>
+        </div>
+
+      </div>
+
+    <% end %>
 
   </div>
 </div>
