@@ -1,0 +1,25 @@
+default: &default
+  pool: 5
+  timeout: 5000
+  adapter: mysql2
+  host: localhost
+  username: root
+  password: password
+
+development:
+  <<: *default
+  database: trab_progweb_development
+
+test:
+  <<: *default
+  database: trab_progweb_test
+
+production:
+  <<: *default
+  adapter: postgresql
+  url: <%= ENV["DB_URL"] %>
+  host: <%= ENV["DB_HOST"] %>
+  port: <%= ENV["DB_PORT"] %>
+  database: <%= ENV["DB_DATABASE"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
