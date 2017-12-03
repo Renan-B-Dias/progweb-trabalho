@@ -46,9 +46,9 @@ $ bundle install
 
 **Configuração do banco de dados**
 
-Primeiramente é necessário criar o arquivo de setup de banco: `config/database.yml`.
+Primeiramente é necessário criar o arquivo de setup de banco: `config/database.yml`. Para isso copie o arquivo de exemplo e modifique os campos corretos:
 ```bash
-$ touch config/database.yml
+$ cp config/database.example.yml config/database.yml
 ```
 
 Depois copie o conteúdo do arquivo de exemplo `config/database.example.yml`, cole no novo arquivo e altere o usuário e senha de acordo com seu MySQL local.
