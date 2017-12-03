@@ -17,6 +17,9 @@
         <h5 class="white-text">Avaliação</h5>
         <p class="white-text"><%= @rating.text %></p>
 
+        <h5 class="white-text">Teria aula novamente com esse professor</h5>
+        <span class="white-text"><%= (@rating.take_again ? "Sim" : "Não") %></span>
+
         <h5 class="white-text">Deveria Fazer</h5>
         <p class="white-text"><%= @rating.to_do %></p>
 
