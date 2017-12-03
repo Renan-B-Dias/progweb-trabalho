@@ -1,40 +1,28 @@
 <div class="container">
 
-  <%= link_to 'Voltar', :back %>
+  <p>
+    <%= link_to 'Voltar', :back %>
+  </p>
 
   <div class="row">
 
     <div class="col s12">
+      <div class="card-panel teal">
+        <h5 class="white-text">Faria aula novamente com esse professor</h5>
+        <p class="white-text"><%= (@rating.take_again ? "Sim" : "Não") %></p>
 
-        <div class="card-panel teal">
+        <h5 class="white-text">Dificuldade:</h5>
+        <div class="white-text"><%= @rating.difficulty %></div>
 
-          <div>
-            <h5 class="white-text">Faria aula novamente com esse professor</h5>
-            <span class="white-text"><%= (@rating.take_again ? "Sim" : "Não") %></span>
-          </div>
-          <br>
+        <h5 class="white-text">Avaliação</h5>
+        <p class="white-text"><%= @rating.text %></p>
 
-          <div>
-            <span class="white-text">Dificuldade: <%= @rating.difficulty %></span>
-            <br>
-          </div>
+        <h5 class="white-text">Deveria Fazer</h5>
+        <p class="white-text"><%= @rating.to_do %></p>
 
-          <div>
-            <h5 class="white-text">Avaliação</h5>
-            <p class="white-text"><%= @rating.text %></p>
-          </div>
-
-          <% if @rating.to_do != nil %>
-            <h5 class="white-text">Deveria Fazer</h5>
-            <span class="white-text"><%= @rating.to_do %></span>
-          <% end %>
-
-          <% if @rating.not_to_do != nil %>
-            <h5 class="white-text">Parar de Fazer</h5>
-            <span class="white-text"><%= @rating.not_to_do %></span>
-          <% end %>
-        </div>
-
+        <h5 class="white-text">Parar de Fazer</h5>
+        <p class="white-text"><%= @rating.not_to_do %></p>
+      </div>
     </div>
 
   </div>

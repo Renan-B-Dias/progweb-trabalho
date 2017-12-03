@@ -1,1 +1,59 @@
-<h1>HI</h1>
+<div class="container">
+  <p>
+    <%= link_to 'Voltar', :back  %>
+  </p>
+
+  <%= form_for([@rateable, @rating]) do |f| %>
+    <div class="row">
+      <p class="range-field col s4">
+        <%= f.label :difficulty %>
+        <%= f.range_field :difficulty, min: 1, max: 5, value: 1 %>
+      </p>
+    </div>
+
+    <div class="row">
+      <p class="range-field col s4">
+        <%= f.label :grade %>
+        <%= f.range_field :grade, min: 1, max: 5, value: 1 %>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="switch">
+        <label>
+          <%= f.label :take_again %>
+          <%= f.check_box :take_again %>
+          <span class="lever"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s4">
+        <i class="material-icons prefix">&#xE145;</i>
+        <%= f.label :to_do %>
+        <%= f.text_area :to_do, class: 'materialize-textarea', maxlength: text_max_length, data: { length: text_max_length } %>
+      </div>
+
+      <div class="input-field col s4">
+        <i class="material-icons prefix">&#xE14C;</i>
+        <%= f.label :not_to_do %>
+        <%= f.text_area :not_to_do, class: 'materialize-textarea', maxlength: text_max_length, data: { length: text_max_length } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">&#xE150;</i>
+        <%= f.label :text %>
+        <%= f.text_area :text, class: 'materialize-textarea', maxlength: text_max_length, data: { length: text_max_length } %>
+        <p class="observation">Chegou a sua hora de se abrir. Escreva o que está em seu coração, positivo e negativo.</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Enviar", class: 'btn' %>
+    </div>
+  <% end %>
+
+</div>

@@ -1,7 +1,8 @@
 class CreateRatings < ActiveRecord::Migration[5.1]
   def change
     create_table :ratings do |t|
-      t.integer :dificult
+      t.integer :difficulty
+      t.integer :grade
       t.text :to_do
       t.text :not_to_do
       t.boolean :take_again

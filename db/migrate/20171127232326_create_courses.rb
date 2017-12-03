@@ -3,7 +3,7 @@ class CreateCourses < ActiveRecord::Migration[5.1]
     create_table :courses do |t|
       t.string :name
       t.integer :area_of_study
-      t.belongs_to :user
+      t.integer :period
 
       t.timestamps
     end

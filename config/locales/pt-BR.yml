@@ -11,6 +11,13 @@ pt-BR:
         master: Mestre
         substitute: Substituto
   activerecord:
+    attributes:
+      rating:
+        to_do: Deveria fazer
+        grade: Nota
+        not_to_do: Não fazer
+        text: Descrição
+        difficulty: Dificuldade
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

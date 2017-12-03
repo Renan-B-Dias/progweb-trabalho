@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203044342) do
+ActiveRecord::Schema.define(version: 20171203181400) do
 
   create_table "courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "area_of_study"
-    t.bigint "user_id"
+    t.integer "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "difficulty"
+    t.integer "grade"
     t.text "to_do"
     t.text "not_to_do"
     t.boolean "take_again"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 20171203044342) do
 
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "difficulty"
-    t.integer "period"
     t.integer "workload"
     t.text "description"
     t.datetime "created_at", null: false
@@ -68,8 +66,11 @@ ActiveRecord::Schema.define(version: 20171203044342) do
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "users", "courses"
 end

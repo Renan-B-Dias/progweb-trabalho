@@ -1,5 +1,7 @@
 <div class="container">
-  <%= link_to 'Home', root_path %>
+  <p>
+    <%= link_to '< Home', root_path %>
+  </p>
 
   <div class="row">
 
@@ -15,7 +17,7 @@
               <%= teacher.name %>
               <i class="material-icons right">more_vert</i>
             </span>
-            <p>Nota: <%= rand(1..5) %></p>
+            <p>Nota: <%= teacher.grade %></p>
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">
@@ -23,11 +25,13 @@
               <i class="material-icons right">close</i>
             </span>
             <p>Titulo: <%= teacher.title.text %></p>
-            <p>Nota: <%= rand(1..5) %></p>
+            <p>Nota: <%= teacher.grade %></p>
+            <p>Dificuldade: <%= teacher.difficulty %></p>
+            <p>Total de avaliações: <%= teacher.ratings.length %></p>
           </div>
 
           <div class="card-action center">
-            <%= link_to "Detalhers", teacher_path(teacher) %>
+            <%= link_to "Detalhes", teacher_path(teacher) %>
             <%= link_to "Avaliar", new_teacher_rating_path(teacher) %>
           </div>
         </div>

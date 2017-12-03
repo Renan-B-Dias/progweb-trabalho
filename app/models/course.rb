@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   extend Enumerize
 
-  has_many :users, inverse_of: :course
+  has_many :users
 
   validates :name, presence: true
 

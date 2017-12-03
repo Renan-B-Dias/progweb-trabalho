@@ -1,5 +1,9 @@
 <div class="container">
   <h1>Home</h1>
-  <%= link_to 'Professores', teachers_path, method: :get %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+
+  <%= link_to 'Professores', teachers_path, class: 'btn' %>
+
+  <%= link_to 'Disciplinas', subjects_path, class: 'btn' %>
+
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn' %>
 </div>
