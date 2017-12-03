@@ -5,6 +5,11 @@ pt-BR:
         biology: Ciências Biológicas
         humans: Ciências Humanas
         exacts: Ciências Exatas
+    teacher:
+      title:
+        doctor: Doutor
+        master: Mestre
+        substitute: Substituto
   activerecord:
     errors:
       messages:

@@ -1,8 +1,43 @@
 <div class="container">
 
+  <%= link_to 'Voltar', :back %>
+
   <div class="row">
 
+    <div class="col s4">
+      <img class="materialboxed" width="250" src="https://robohash.org/<%= @teacher.name.parameterize %>?bgset=any" data-caption="<%= @teacher.name %>">
+    </div>
 
+    <div class="col s8">
+      <h3><%= @teacher.name %></h3>
+      <h5>Título: <%= @teacher.title %></h5>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Teria aula novamente</th>
+          <th>Texto</th>
+          <th>Dificuldade</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% @teacher.ratings.each do |rating| %>
+          <tr>
+            <th><%= (rating.take_again ? "Sim" : "Não") %></th>
+            <th><%= rating.text %></th>
+            <th><%= rating.difficulty %></th>
+          </tr>
+        <% end %>
+
+      </tbody>
+    </table>
 
   </div>
 </div>
