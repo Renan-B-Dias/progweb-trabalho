@@ -22,26 +22,25 @@
         <h4>Avaliações</h4>
       </div>
 
-      <div class="col s12">
-        <table>
-          <thead>
-            <tr>
-              <th>Teria aula novamente</th>
-              <th>Texto</th>
-              <th>Dificuldade</th>
-            </tr>
-          </thead>
+      <div class="row">
 
-          <tbody>
-            <% @teacher.ratings.each do |rating| %>
-              <tr>
-                <th><%= (rating.take_again ? "Sim" : "Não") %></th>
-                <th><%= rating.text %></th>
-                <th><%= rating.difficulty %></th>
-              </tr>
+        <% @teacher.ratings.each do |rating| %>
+          <div class="col s4">
+
+            <%= link_to teacher_rating_path(@teacher, rating) do %>
+
+              <div class="card-panel teal">
+                <span class="white-text">Teria aula novamente: <%= (rating.take_again ? "Sim" : "Não") %></span>
+                <br>
+                <span class="white-text">Dificuldade: <%= rating.difficulty %></span>
+                <br>
+                <p class="white-text truncate">Texto: <%= rating.text %></p>
+              </div>
+
             <% end %>
-          </tbody>
-        </table>
+          </div>
+        <% end %>
+
       </div>
 
     <% else %>

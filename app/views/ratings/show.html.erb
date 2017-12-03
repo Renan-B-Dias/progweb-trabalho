@@ -1,0 +1,42 @@
+<div class="container">
+
+  <%= link_to 'Voltar', :back %>
+
+  <div class="row">
+
+    <div class="col s12">
+
+        <div class="card-panel teal">
+
+          <div>
+            <h5 class="white-text">Faria aula novamente com esse professor</h5>
+            <span class="white-text"><%= (@rating.take_again ? "Sim" : "Não") %></span>
+          </div>
+          <br>
+
+          <div>
+            <span class="white-text">Dificuldade: <%= @rating.difficulty %></span>
+            <br>
+          </div>
+
+          <div>
+            <h5 class="white-text">Avaliação</h5>
+            <p class="white-text"><%= @rating.text %></p>
+          </div>
+
+          <% if @rating.to_do != nil %>
+            <h5 class="white-text">Deveria Fazer</h5>
+            <span class="white-text"><%= @rating.to_do %></span>
+          <% end %>
+
+          <% if @rating.not_to_do != nil %>
+            <h5 class="white-text">Parar de Fazer</h5>
+            <span class="white-text"><%= @rating.not_to_do %></span>
+          <% end %>
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
