@@ -1,13 +1,17 @@
-# Trabalho ProgWeb 1.0 - Web
+# Star Professors
+## Trabalho ProgWeb 1.0 - Web
+
+# URL: https://star-professors.herokuapp.com
 
 ## Instalação do Projeto
 ------------------------
 
 ### Dependências
 
- - Ruby v2.4.0
+ - Ruby v2.4.1
      - Caso não tenha Ruby intalado em sua máquina, recomendamos o uso do [RVM](https://rvm.io/) para a instalação do mesmo.
  - Rails v5.0.3
+ - MySQL e/ou Postgres
  - ImageMagick. Comando Ubuntu: `sudo apt-get install imagemagick libmagickwand-dev`
  - MySQL
  - Git e Git Flow
@@ -32,7 +36,7 @@ Caso opte por não utilizar Git Flow, é necessário fazer o download da branch 
 
 Dentro da pasta do projeto, crie os arquivos `.ruby-version` e `.ruby-gemset` e depois entre novamente na pasta para carregar as novas configurações.
 ```bash
-$ echo "ruby-2.4.0" > .ruby-version && echo "trabalho-progweb" > .ruby-gemset
+$ echo "ruby-2.4.1" > .ruby-version && echo "trabalho_progweb" > .ruby-gemset
 $ cd .
 ```
 
