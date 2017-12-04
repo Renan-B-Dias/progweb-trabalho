@@ -1,11 +1,11 @@
 class TeachersController < ApplicationController
 
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.includes(:ratings)
   end
 
   def show
-    @teacher = Teacher.find params[:id]
+    @teacher = Teacher.includes(:ratings).find_by_id params[:id]
   end
 
 end

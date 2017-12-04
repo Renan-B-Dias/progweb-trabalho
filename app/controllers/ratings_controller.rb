@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
 
-  before_action :set_rateable, only: [:new, :create]
+  before_action :set_rateable, only: [:new, :create, :show]
 
   def new
     @rating = @rateable.ratings.build
@@ -23,8 +23,7 @@ class RatingsController < ApplicationController
   end
 
   def show
-    @teacher = Teacher.find_by params[:teacher_id]
-    @rating = @teacher.ratings.find_by_id params[:id]
+    @rating = @rateable.ratings.find_by_id params[:id]
   end
 
   private

@@ -1,10 +1,10 @@
 class SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.includes(:ratings)
   end
 
   def show
-    @subject = Subject.find params[:id]
+    @subject = Subject.includes(:ratings).find_by_id params[:id]
   end
 end
