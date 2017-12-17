@@ -22,11 +22,41 @@ teachers.each do |row|
   Teacher.create row.to_hash
 end
 
-# Subject.each do |subject|
+user = User.create(
+  name: 'Teste',
+  email: 'teste@teste.com',
+  password: 'secret123',
+  course: Course.all.sample
+)
 
-#   subject.ratings.create(
-#     difficulty: rand(1..5),
+Subject.all.each do |subject|
 
-#   )
+  rand(6..12).times do
+    subject.ratings.create(
+      user: user,
+      difficulty: rand(1..5),
+      grade: rand(1..5),
+      to_do: Faker::Lorem.paragraph,
+      not_to_do: Faker::Lorem.paragraph,
+      text: Faker::Lorem.paragraph,
+      take_again: [false, true].sample
+    )
+  end
 
-# end
+end
+
+Teacher.all.each do |teacher|
+
+  rand(6..12).times do
+    teacher.ratings.create(
+      user: user,
+      difficulty: rand(1..5),
+      grade: rand(1..5),
+      to_do: Faker::Lorem.paragraph,
+      not_to_do: Faker::Lorem.paragraph,
+      text: Faker::Lorem.paragraph,
+      take_again: [false, true].sample
+    )
+  end
+
+end

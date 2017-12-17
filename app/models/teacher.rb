@@ -8,7 +8,7 @@ class Teacher < ApplicationRecord
   has_many :ratings, as: :rateable
 
   scope :search, -> (search) { where("name LIKE :term", term: "%#{search}%") }
-  scope :last_rated, -> { joins(:ratings).order("ratings.id DESC") }
+  scope :last_rated, -> (limit) { joins(:ratings).order("ratings.id DESC").uniq.first(4) }
 
   def grade
     self.ratings.average(:grade) || 0.0

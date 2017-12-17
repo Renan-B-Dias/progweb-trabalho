@@ -4,10 +4,7 @@ pt-BR:
       user:
         invalid: E-mail ou senha está inválido. Verifique seus dados
         not_found_in_database: E-mail ou senha está inválido. Verifique seus dados
-        unauthenticated: Por favor, faça login para continuar
-  errors:
-    messages:
-      not_saved: Dados inválidos
+        unauthenticated: "Por favor, faça login para continuar"
   enumerize:
     course:
       area_of_study:
@@ -140,6 +137,7 @@ pt-BR:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      not_saved: Dados inválidos
       accepted: deve ser aceito
       blank: não pode ficar em branco
       present: deve ficar em branco

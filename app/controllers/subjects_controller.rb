@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.includes(:ratings)
+    @subjects = Subject.includes(:ratings).order_by(:name)
   end
 
   def show
@@ -9,6 +9,6 @@ class SubjectsController < ApplicationController
   end
 
   def search
-    @subjects = Subject.includes(:ratings).search params[:search]
+    @subjects = Subject.includes(:ratings).search(params[:search]).order_by(:name)
   end
 end
