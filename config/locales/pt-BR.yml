@@ -1,4 +1,13 @@
 pt-BR:
+  devise:
+    failure:
+      user:
+        invalid: E-mail ou senha está inválido. Verifique seus dados
+        not_found_in_database: E-mail ou senha está inválido. Verifique seus dados
+        unauthenticated: Por favor, faça login para continuar
+  errors:
+    messages:
+      not_saved: Dados inválidos
   enumerize:
     course:
       area_of_study:
@@ -18,6 +27,11 @@ pt-BR:
         not_to_do: Não fazer
         text: Descrição
         difficulty: Dificuldade
+        take_again: Faria de novo
+      user:
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmação de senha
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

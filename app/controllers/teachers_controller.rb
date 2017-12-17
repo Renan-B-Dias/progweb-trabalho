@@ -8,4 +8,8 @@ class TeachersController < ApplicationController
     @teacher = Teacher.includes(:ratings).find_by_id params[:id]
   end
 
+  def search
+    @teachers = Teacher.includes(:ratings).search params[:search]
+  end
+
 end

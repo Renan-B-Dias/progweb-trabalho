@@ -1,12 +1,13 @@
 <div class="container">
-  <p>
-    <%= link_to '< Home', root_path %>
-  </p>
 
-  <div class="row">
+  <div class="row search-input">
+    <%= form_tag(search_subjects_path, remote: true, method: :get) do %>
+      <%= text_field_tag :search, params[:search], id: 'subjects_search', placeholder: 'Pesquise uma disciplina aqui' %>
+    <% end %>
+  </div>
 
-    <p>Em desenvolvimento</p>
-
+  <div id="subjects_list" class="row">
+    <%= render partial: 'list' %>
   </div>
 
 </div>

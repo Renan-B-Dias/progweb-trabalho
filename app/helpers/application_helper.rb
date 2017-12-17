@@ -12,4 +12,8 @@ module ApplicationHelper
     date.strftime("%d/%m/%Y")
   end
 
+  def workload_format(workload)
+    "#{workload} horas"
+  end
+
 end

@@ -1,13 +1,28 @@
 <div class="container">
   <h1>Home</h1>
 
-  <div class="actions waves-effect waves-light btn red lighten-1">
-    <%= link_to 'Professores', teachers_path, class: "white-text" %>
+  <div class="row">
+    <h4>Últimos professores avaliados:</h4>
+
+    <div class="row">
+      <%= render partial: 'teachers/list' %>
+    </div>
+
+    <div class="row">
+      <%= link_to 'Ver todos >', teachers_path, class: 'right' %>
+    </div>
   </div>
 
-  <div class="actions waves-effect waves-light btn red lighten-1">
-    <%= link_to 'Disciplinas', subjects_path, class: 'white-text' %>
+  <div class="row">
+    <h4>Últimas disciplinas avaliadas:</h4>
+
+    <div class="row">
+      <%= render partial: 'subjects/list' %>
+    </div>
+
+    <div class="row">
+      <%= link_to 'Ver todos >', subjects_path, class: 'right' %>
+    </div>
   </div>
 
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 </div>

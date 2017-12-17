@@ -20,4 +20,8 @@
 document.addEventListener("turbolinks:load", function() {
   $('select').material_select();
   $('textarea').characterCounter();
-})
+
+  $('#subjects_search').on('keyup', function() {
+    if(this.value.length < 4) return;
+  });
+});

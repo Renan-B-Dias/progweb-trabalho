@@ -1,0 +1,31 @@
+<% @subjects.each do |subject| %>
+  <div class="col s3">
+    <div class="card sticky-action">
+
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://identicon-api.herokuapp.com/<%= subject.name.parameterize %>/300?format=png">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">
+          <%= subject.name.truncate(20) %>
+          <i class="material-icons right">more_vert</i>
+        </span>
+        <p>Nota: <%= subject.grade %></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">
+          <%= subject.name %>
+          <i class="material-icons right">close</i>
+        </span>
+        <p>Nota: <%= subject.grade %></p>
+        <p>Dificuldade: <%= subject.difficulty %></p>
+        <p>Total de avaliações: <%= subject.ratings.length %></p>
+      </div>
+
+      <div class="card-action center">
+        <%= link_to "Detalhes", subject_path(subject) %>
+        <%= link_to "Avaliar", new_subject_rating_path(subject) %>
+      </div>
+    </div>
+  </div>
+<% end %>

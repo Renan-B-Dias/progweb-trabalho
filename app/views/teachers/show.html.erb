@@ -1,13 +1,9 @@
 <div class="container">
 
-  <p>
-    <%= link_to 'Voltar', teachers_path %>
-  </p>
-
   <div class="row">
 
     <div class="col s4">
-      <img class="materialboxed" width="250" src="https://robohash.org/<%= @teacher.name.parameterize %>?bgset=any" data-caption="<%= @teacher.name %>">
+      <img class="materialboxed" width="250" src="<%= @teacher.avatar %>">
     </div>
 
     <div class="col s8">
@@ -51,8 +47,8 @@
 
       <div class="row">
         <div class="center-align col s12">
-          <h4>Não foi encontrado avaliações :(</h4>
-          <i class="material-icons">list</i>
+          <h5>Esse professor ainda não tem avaliações :(</h5>
+          <h5>Seja o primeiro a avaliar <%= link_to 'clicando aqui', new_teacher_rating_path(@teacher) %></h5>
         </div>
       </div>
 

@@ -1,18 +1,32 @@
-Course.delete_all
-User.delete_all
+require 'csv'
 
-engSoft = Course.create(name: "Engenharia de Software")
-course = Course.create(name: "Ciências da Computação")
-sisInf = Course.create(name: "Sistemas da Informação")
-course = Course.create(name: "Biologia")
-course = Course.create(name: "Medicina")
+subjects = CSV.parse File.open("#{Rails.root}/lib/assets/subjects.csv"), headers: true
+teachers = CSV.parse File.open("#{Rails.root}/lib/assets/teachers.csv"), headers: true
 
-user = User.create(name: "Renan Benatti Dias", email: "renanbenattidias@gmail.com", password: "secret123", course: engSoft)
-user = User.create(name: "Victor Pereira de Paula", email: "victordepaula@gmail.com", password: "secret123", course: engSoft)
-user = User.create(name: "Mathias", email: "mathias@gmail.com", password: "secret123", course: sisInf)
+subjects.each do |row|
+  subject = Subject.find_or_initialize_by name: row['subject'].squish
+  subject.workload    = row['workload'].to_i
+  subject.description = Faker::Lorem.paragraph(3)
+  subject.save
 
-Teacher.create(name: "Jane Dirce Alves Sandim Eleutério", title: :doctor)
-Teacher.create(name: "Bruno Magalhães Nogueira", title: :doctor)
-Teacher.create(name: "Samuel Benjoino Ferraz", title: :master)
-Teacher.create(name: "Rodrigo Funabashi Jorge", title: :doctor)
-Teacher.create(name: "Anderson Viçoso de Araujo", title: :doctor)
+  courses = row['course'].split(',')
+  courses.each do |course|
+    # Ta escrito errado no CSV
+    course_name = course.squish.sub('(OPT)', '').sub('Engenheria', 'Engenharia')
+    course = Course.find_or_create_by name: course_name
+    course.subjects << subject
+  end
+end
+
+teachers.each do |row|
+  Teacher.create row.to_hash
+end
+
+# Subject.each do |subject|
+
+#   subject.ratings.create(
+#     difficulty: rand(1..5),
+
+#   )
+
+# end

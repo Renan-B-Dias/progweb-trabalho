@@ -1,7 +1,11 @@
 <div class="container">
-  <p>
-    <%= link_to 'Voltar', :back  %>
-  </p>
+
+  <% if @rating.errors.any? %>
+    <h4>Errors:</h4>
+    <% @rating.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
 
   <%= form_for([@rateable, @rating]) do |f| %>
     <div class="row">

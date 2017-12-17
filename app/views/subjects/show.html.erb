@@ -1,0 +1,66 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col s4">
+      <img width="250" src="https://identicon-api.herokuapp.com/<%= @subject.name.parameterize %>/300?format=png">
+    </div>
+
+    <div class="col s8">
+      <h3><%= @subject.name %></h3>
+      <h5>Descrição: <%= @subject.description %></h5>
+      <h5>Carga horária: <%= workload_format @subject.workload %></h5>
+      <br>
+      <h5>Cursos:</h5>
+      <ul class="list">
+        <% @subject.courses.each do |course| %>
+          <li><%= course.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <h5>Nota: <%= @subject.grade %></h5>
+    <h5>Dificuldade: <%= @subject.difficulty %></h5>
+  </div>
+
+  <% if @subject.ratings.any? %>
+
+    <div class="row">
+      <div class="col s12">
+        <%= link_to 'Avaliar', new_subject_rating_path(@subject), class: "btn right" %>
+        <h4>Avaliações</h4>
+        <p>Total: <%= @subject.ratings.length %></p>
+      </div>
+
+      <div class="row">
+
+        <% @subject.ratings.each do |rating| %>
+          <div class="col s4">
+
+            <%= link_to subject_rating_path(@subject, rating) do %>
+              <div class="card-panel teal">
+                <span class="white-text right"><%= format_date(rating.created_at) %></span>
+                <p class="white-text">Teria aula novamente: <%= (rating.take_again ? "Sim" : "Não") %></p>
+                <p class="white-text">Dificuldade: <%= rating.difficulty %></p>
+                <p class="white-text truncate">Texto: <%= rating.text %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+
+    <% else %>
+
+      <div class="row">
+        <div class="center-align col s12">
+          <h5>Esse professor ainda não tem avaliações :(</h5>
+          <h5>Seja o primeiro a avaliar <%= link_to 'clicando aqui', new_subject_rating_path(@subject) %></h5>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

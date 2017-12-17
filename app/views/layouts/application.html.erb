@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body class="green lighten-5">
+  <body class="blue lighten-5">
+
+    <% unless devise_controller? %>
+      <%= render 'shared/navbar' %>
+    <% end %>
 
     <div class="container-fluid">
       <%= yield %>
