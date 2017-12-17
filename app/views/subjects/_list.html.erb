@@ -10,15 +10,15 @@
           <%= subject.name.truncate(20) %>
           <i class="material-icons right">more_vert</i>
         </span>
-        <p>Nota: <%= subject.grade %></p>
+        <p>Nota: <%= subject.grade.round(2) %></p>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">
           <%= subject.name %>
           <i class="material-icons right">close</i>
         </span>
-        <p>Nota: <%= subject.grade %></p>
-        <p>Dificuldade: <%= subject.difficulty %></p>
+        <p>Nota: <%= subject.grade.round(2) %></p>
+        <p>Dificuldade: <%= subject.difficulty.round(2) %></p>
         <p>Total de avaliações: <%= subject.ratings.length %></p>
       </div>
 

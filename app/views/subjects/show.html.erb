@@ -20,8 +20,8 @@
   </div>
 
   <div class="row">
-    <h5>Nota: <%= @subject.grade %></h5>
-    <h5>Dificuldade: <%= @subject.difficulty %></h5>
+    <h5>Nota: <%= @subject.grade.round(2) %></h5>
+    <h5>Dificuldade: <%= @subject.difficulty.round(2) %></h5>
   </div>
 
   <% if @subject.ratings.any? %>

@@ -10,8 +10,8 @@
       <h3><%= @teacher.name %></h3>
       <h4>Título: <%= @teacher.title %></h4>
 
-      <h5>Nota: <%= @teacher.grade %></h5>
-      <h5>Dificuldade: <%= @teacher.difficulty %></h5>
+      <h5>Nota: <%= @teacher.grade.round(2) %></h5>
+      <h5>Dificuldade: <%= @teacher.difficulty.round(2) %></h5>
     </div>
 
   </div>

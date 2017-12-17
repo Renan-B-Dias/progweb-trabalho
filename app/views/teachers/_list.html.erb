@@ -10,7 +10,7 @@
           <%= teacher.name.truncate(20) %>
           <i class="material-icons right">more_vert</i>
         </span>
-        <p>Nota: <%= teacher.grade %></p>
+        <p>Nota: <%= teacher.grade.round(2) %></p>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">
@@ -18,8 +18,8 @@
           <i class="material-icons right">close</i>
         </span>
         <p>Titulo: <%= teacher.title.text %></p>
-        <p>Nota: <%= teacher.grade %></p>
-        <p>Dificuldade: <%= teacher.difficulty %></p>
+        <p>Nota: <%= teacher.grade.round(2) %></p>
+        <p>Dificuldade: <%= teacher.difficulty.round(2) %></p>
         <p>Total de avaliações: <%= teacher.ratings.length %></p>
       </div>
 
