@@ -41,8 +41,9 @@
             <%= link_to subject_rating_path(@subject, rating) do %>
               <div class="card-panel teal">
                 <span class="white-text right"><%= format_date(rating.created_at) %></span>
-                <p class="white-text">Teria aula novamente: <%= (rating.take_again ? "Sim" : "Não") %></p>
+                <p class="white-text">Nota: <%= rating.grade %></p>
                 <p class="white-text">Dificuldade: <%= rating.difficulty %></p>
+                <p class="white-text">Teria aula novamente: <%= (rating.take_again ? "Sim" : "Não") %></p>
                 <p class="white-text truncate">Texto: <%= rating.text %></p>
               </div>
             <% end %>
