@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171217200815) do
 
-  create_table "courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "area_of_study"
     t.integer "period"
@@ -20,14 +23,14 @@ ActiveRecord::Schema.define(version: 20171217200815) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "courses_subjects", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "courses_subjects", id: false, force: :cascade do |t|
     t.bigint "course_id"
     t.bigint "subject_id"
     t.index ["course_id"], name: "index_courses_subjects_on_course_id"
     t.index ["subject_id"], name: "index_courses_subjects_on_subject_id"
   end
 
-  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer "difficulty"
     t.integer "grade"
     t.text "to_do"
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171217200815) do
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-  create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.integer "workload"
     t.text "description"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171217200815) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.integer "title"
     t.datetime "created_at", null: false
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 20171217200815) do
     t.string "avatar"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
