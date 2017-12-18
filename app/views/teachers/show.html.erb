@@ -8,7 +8,7 @@
 
     <div class="col s8">
       <h3><%= @teacher.name %></h3>
-      <h4>Título: <%= @teacher.title %></h4>
+      <h4>Título: <%= @teacher.title.text %></h4>
 
       <h5>Nota: <%= @teacher.grade.round(2) %></h5>
       <h5>Dificuldade: <%= @teacher.difficulty.round(2) %></h5>
