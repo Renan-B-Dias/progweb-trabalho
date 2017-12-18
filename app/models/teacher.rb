@@ -7,7 +7,7 @@ class Teacher < ApplicationRecord
 
   has_many :ratings, as: :rateable
 
-  scope :search, -> (search) { where("name LIKE :term", term: "%#{search}%") }
+  scope :search, -> (search) { where("name LIKE lower(:term)", term: "%#{search.downcase}%") }
   scope :last_rated, -> (limit) { joins(:ratings).order("ratings.id DESC").uniq.first(4) }
 
   def grade
