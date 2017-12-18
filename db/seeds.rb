@@ -39,7 +39,7 @@ Subject.all.each do |subject|
       to_do: Faker::Lorem.paragraph,
       not_to_do: Faker::Lorem.paragraph,
       text: Faker::Lorem.paragraph,
-      take_again: [false, true].sample
+      take_again: Faker::Boolean.boolean
     )
   end
 
@@ -55,7 +55,7 @@ Teacher.all.each do |teacher|
       to_do: Faker::Lorem.paragraph,
       not_to_do: Faker::Lorem.paragraph,
       text: Faker::Lorem.paragraph,
-      take_again: [false, true].sample
+      take_again: Faker::Boolean.boolean
     )
   end
 
